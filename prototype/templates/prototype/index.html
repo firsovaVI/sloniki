@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elephant</title>
+</head>
+<body>
+    <h1>Каталог заданий:</h1>
+    {% if problems_list %}
+    <h1>
+        <ol>
+            {% for problem in problems_list %}
+                <li><a href="/{{ problem.id }}/">{{ problem.headline }}</a></li>
+            {% endfor %}
+        </ol>
+    </h1>
+    {% else %}
+        <p>Отсутствуют доступные задачи.</p>
+    {% endif %}
+</body>
+</html>

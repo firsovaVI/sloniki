@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elephant</title>
+</head>
+<body>
+    <h1>{{ problem.headline }}</h1>
+    <big>
+        <p>{{ problem.statement|linebreaks }}</p>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="answer_entry">Ответ:</label>
+            <input type="text" id="answer_entry" name="user_answer">
+            <input type="submit" value="Проверить">
+        </form>
+        {% if status %}
+            <h1>{{ status }}</h1>
+        {% endif %}
+    </big>
+</body>
+</html>
