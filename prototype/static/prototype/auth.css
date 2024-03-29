@@ -1,0 +1,61 @@
+body {
+
+
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.container {
+    width: 80%;
+    max-width: 400px;
+    margin: 50px auto;
+    background-image: url('images/auth.jpg');
+background-size: cover; /* Масштабирование изображения для заполнения всей области */
+background-position: center; /* Выравнивание изображения по центру */
+background-repeat: no-repeat; /* Запрет повторения фонового изображения */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+}
+
+.auth-header {
+    background-color: #ccc; /* Серый цвет фона */
+    padding: 10px 20px; /* Внутренние отступы */
+    border-radius: 8px; /* Скругление углов */
+    text-align: center; /* Выравнивание текста по центру */
+    margin-bottom: 20px; /* Внешний отступ снизу */
+}
+h1 {
+    margin: 0; /* Убираем внутренние отступы у заголовка */
+    color: #000000; /* Цвет текста */
+}
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+input[type="submit"] {
+    background-color: #b7aba1;
+    color: #000000;
+    cursor: pointer;
+}
+.links {
+    text-align: center;
+    margin-top: 20px;
+}
+.links a {
+    text-decoration: none;
+    color: #000000;
+    margin: 0 10px;
+}

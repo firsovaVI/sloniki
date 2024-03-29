@@ -1,0 +1,267 @@
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+.background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #9FA3AB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .background > * {
+    position: relative;
+  }
+
+  .ellipse1 {
+    position: fixed;
+    width: 103%;
+    height: 94%;
+    left: 50%;
+    top: 7%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(147,6,6,  0.8);
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+.ellipse2 {
+    position: fixed;
+    width: 62%;
+    height: 54%;
+    left: 0%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(147,6,6,  0.8);
+    border-radius: 50%;
+    z-index: 2;
+  }
+.ellipse3 {
+    position: fixed;
+    width: 35%;
+    height: 39%;
+    left: 3%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(147,6,6,  0.8);;
+    border-radius: 50%;
+    z-index: 3;
+  }
+.ellipse3 img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+.ellipse4 {
+    position: fixed;
+    width: 61%;
+    height: 48%;
+    left: 100%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(147,6,6,  0.8);
+    border-radius: 50%;
+    z-index: 2;
+  }
+.ellipse5 {
+    position: fixed;
+    width: 48%;
+    height: 45%;
+    left: 104%;
+    top: 92%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(147,6,6,  0.8);
+    border-radius: 50%;
+    z-index: 3;
+  }
+.ellipse5 img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+
+
+.board {
+    position: fixed;
+    width: 100%;
+    height: 17%;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(190, 142, 142);;
+    border-radius: 20px;
+    z-index: 3;
+  }
+
+  .board img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 20px;
+    opacity: 0.5;
+    object-fit: cover; /* или contain, в зависимости от желаемого эффекта */
+  }
+
+  .tasks {
+    padding: 20px;
+    background-color: white;
+    border: 2px solid #000;
+    border-radius: 10px;
+    width: 87%;
+    text-align: center;
+    height: 47%;
+    overflow-y: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Koulen', sans-serif;
+    z-index: 5;
+  }
+
+
+  .tasks h1 {
+    margin-bottom: 20px; /* Добавляем небольшое расстояние между заголовком и списком заданий */
+    font-size: 24px; /* Увеличиваем размер шрифта заголовка */
+  }
+
+  .tasks ol {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tasks li {
+  margin-bottom: 15px; /* Добавляем расстояние между заданиями */
+  border: 2px solid #000; /* Добавляем рамку вокруг каждого задания */
+  padding: 10px; /* Добавляем внутренний отступ внутри рамки */
+  font-size: 18px; /* Увеличиваем размер шрифта заданий */
+  border-radius: 10px; /* Скругляем углы рамки */
+}
+
+  .tasks li a {
+    text-decoration: none;
+  color: blue; /* Цвет ссылок */
+  }
+
+.tasks li a:hover {
+   color: red; /* Цвет ссылки при наведении */
+}
+
+
+.link-left {
+  position: absolute;
+  font-size: 24px;
+  top: 8%;
+  left: 83%; /* изменено значение */
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  color: #000000;
+  z-index: 10;
+}
+
+.link-right {
+  position: absolute;
+  top:8%;
+  left:92%; /* изменено значение */
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  text-decoration: none;
+  color: #000000;
+  z-index: 10;
+}
+
+
+.link:hover {
+  color: red; /* Цвет ссылки при наведении */
+
+}
+
+
+.button1 {
+  box-sizing: border-box;
+  position: absolute;
+  left: 83%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+  width: 207px;
+  height: 72px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgba(207, 33, 33, 0.95);
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  border: 1px solid #000000;
+  border-radius: 40px;
+  z-index: 6;
+}
+
+
+.button1:hover {
+  background-color: rgba(207, 33, 33);
+
+}
+
+.button2 {
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: 406px;
+  height: 70px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgba(207, 33, 33, 0.95);
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  border: 1px solid #000000;
+  border-radius: 40px;
+  z-index: 5;
+}
+
+.button2:hover {
+  background-color: rgba(207, 33, 33);
+
+}
+
+.button3 {
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: 406px;
+  height: 70px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgba(207, 33, 33, 0.95);
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  border: 1px solid #000000;
+  border-radius: 40px;
+  z-index: 5;
+}
+
+.button3:hover {
+  background-color: rgba(207, 33, 33);
+
+}
