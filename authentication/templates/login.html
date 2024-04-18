@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/auth.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="auth-header">
+        <h1>Авторизация</h1>
+        </div>
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Логин" required>
+            <input type="password" name="password" placeholder="Пароль" required>
+            <input type="submit" value="Войти">
+        </form>
+        <div class="links">
+            <a href="{% url 'index' %}">Забыли пароль?</a>
+            <span style="margin: 0 60px;"></span>
+            <a href="{% url 'registration' %}">Регистрация</a>
+        </div>
+    </div>
+    {% if status %}
+        <script>alert('Неверный логин или пароль.');</script>
+    {% endif %}
+</body>
+</html>

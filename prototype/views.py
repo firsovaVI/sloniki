@@ -1,77 +1,60 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import loader
 from django.urls import reverse
 
-from .models import Problem, User
-from .forms import UserForm
+from .models import Problem
 
 
 def index(request):
+    """Функция отображения главной страницы сайта"""
+    is_auth = True
+
+    # Проверить, есть ли у пользователя идентификатор сессии
+    try:
+        id = request.session["session_id"]
+    except KeyError:
+        is_auth = False
+
+    # Взять список проблем из базы данных
     problems_list = Problem.objects.all()
-    template = loader.get_template("prototype/index.html")
-    contex = {"problems_list": problems_list}
+
+    # Взять HTML-шаблон главной страницы
+    template = loader.get_template("index.html")
+
+    # Определить контент шаблона
+    contex = {"problems_list": problems_list, "is_auth": is_auth}
+
+    # Сделать рендер веб-страницы и отправить ответ
     return HttpResponse(template.render(contex, request))
 
 
 def detail(request, problem_id):
-    problem = Problem.objects.get(pk=problem_id)
-    status = None
+    """Функция отображения детальной информации по задаче"""
+    is_auth = True
 
-    if request.method == "POST":
-        if request.POST["user_answer"] == problem.answer:
-            status = "Правильный ответ"
-        else:
-            status = "Неверный ответ"
+    # Проверить, есть ли у пользователя идентификатор сессии
+    try:
+        id = request.session["session_id"]
+    except KeyError:
+        is_auth = False
 
-    template = loader.get_template("prototype/detail.html")
-    contex = {"problem": problem, "status": status}
+    # Получить задачу по первичному ключу из базы данных
+    p = Problem.objects.get(pk=problem_id)
+    if p.image:
+        problem = {"headline": p.headline, "image_url": p.image.url, "statement": p.statement, "answer": p.answer}
+    else:
+        problem = {"headline": p.headline, "image_url": None, "statement": p.statement, "answer": p.answer}
+
+    # Взять необходимый HTML-шаблон
+    template = loader.get_template("detail.html")
+
+    # Определить задачу и правильность ответа в контексте
+    contex = {"problem": problem, "is_auth": is_auth}
+
+    # Сделать рендер веб-страницы и отправить ответ
     return HttpResponse(template.render(contex, request))
 
 
-def registration(request):
-    status = False
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-
-        # create a form instance and populate it with data from the request:
-        form = UserForm(request.POST)
-
-        # check whether it's valid:
-        if form.is_valid():
-
-            # process the data in form.cleaned_data as required:
-            # create new user
-            username = form.cleaned_data["username"]
-            password = form.cleaned_data["password"]
-            user = User(username=username, password=password)
-            user.save()
-
-            # redirect to a new URL: home page
-            return HttpResponseRedirect(reverse("index"))
-        else:
-            status = True
-
-    template = loader.get_template('prototype/registration.html')
-    return HttpResponse(template.render({'status': status}, request))
-
-
-def authorization(request):
-    status = False
-
-    if request.method == 'POST':
-        status = True
-        username = request.POST["username"]
-        password = request.POST["password"]
-
-        try:
-            user = User.objects.get(username__exact=username)
-        except (KeyError, User.DoesNotExist):
-            user = None
-
-        if user:
-            if user.password == password:
-                # redirect to a new URL: home page
-                return HttpResponseRedirect(reverse("index"))
-
-    template = loader.get_template('prototype/authorization.html')
-    return HttpResponse(template.render({'status': status}, request))
+def account(request):
+    message = "<h1>Account page</h1>"
+    return HttpResponse(message)

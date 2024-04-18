@@ -1,22 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Elephant</title>
+    <link rel="stylesheet" href="../static/styles/detail.css">
 </head>
 <body>
-    <h1>{{ problem.headline }}</h1>
-    <big>
-        <p>{{ problem.statement|linebreaks }}</p>
-        <form action="" method="POST">
-            {% csrf_token %}
-            <label for="answer_entry">Ответ:</label>
-            <input type="text" id="answer_entry" name="user_answer">
-            <input type="submit" value="Проверить">
-        </form>
-        {% if status %}
-            <h1>{{ status }}</h1>
-        {% endif %}
-    </big>
+    <textarea id="userInput" placeholder="Введите значение"></textarea>
+
+    <button id="submitButton">Отправить</button>
+
+    <div class="ellipse1"></div>
+    <div class="ellipse2"></div>
+    <div class="ellipse3"> <img src="../static/images/img1.jpeg" alt="im1"></div>
+    <div class="board"> <img src="../static/images/img1.jpeg" alt="im2"> </div>
+    <div class="ellipse4"></div>
+    <div class="ellipse5"> <img src="../static/images/img1.jpeg" alt="im3"></div>
+
+    <div class="main-window"></div>
+    <div class="task-window"></div>
+    
+    {% if is_auth %}
+        <a href="{% url 'account' %}" class="link-left">Личный кабинет</a><br>
+        <a href="{% url 'logout' %}" class="link-right">Выйти</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="link-left">Войти</a><br>
+        <a href="{% url 'registration' %}" class="link-right">Регистрация</a>
+    {% endif %}
+    
+    {{ problem|json_script:"problem" }}
+
+    <script src="../static/scripts/formValidation.js"></script>
+    <script type="text/javascript" src="../static/scripts/detail.js"></script>
 </body>
 </html>

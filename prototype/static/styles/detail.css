@@ -1,0 +1,236 @@
+body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #9FA3AB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Стили для заголовка */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    z-index: 20;
+    padding-left: 10px; 
+    padding-right: 10px; 
+}
+
+/* Стили для изображения */
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: block; 
+    z-index: 20;
+}
+
+/* Стили для условия задачи */
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    z-index: 20;
+    padding-left: 10px; 
+    padding-right: 10px; 
+}
+
+/* Стили для поля ввода */
+textarea {
+    position: fixed;
+    width: 23%;
+    height: calc(54% - 20px);
+    left: 76.5%;
+    top: 53%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(245,	245,	245, 0.6);
+    border-radius: 15px;
+    z-index: 31;
+    padding: 10px;
+    resize: none; 
+    border: none; 
+    color: rgb(0, 0, 0); 
+    font-size: 18px;
+}
+
+
+/* Стили для кнопки */
+button {
+    position: fixed;
+    width: 20%;
+    height: 6.5%;
+    left: 78.5%;
+    top: 93%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    background-color: D9D9D9;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    border-radius: 40px;
+    z-index: 200;
+}
+
+button:hover {
+    background-color: rgba(147,6,6,  0.8);
+}
+
+.ellipse1 {
+    position: fixed;
+    width: 103%;
+    height: 94%;
+    left: 50%;
+    top: 7%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(147,6,6,  0.8);
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+.ellipse2 {
+    position: fixed;
+    width: 62%;
+    height: 54%;
+    left: 0%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(147,6,6,  0.8); 
+    border-radius: 50%;
+    z-index: 2;
+  }
+.ellipse3 {
+    position: fixed;
+    width: 35%;
+    height: 39%;
+    left: 3%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(147,6,6,  0.8);; 
+    border-radius: 50%;
+    z-index: 3;
+  }
+.ellipse3 img {
+    width: 100%; 
+    height: 100%;
+    display: block; 
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+.ellipse4 {
+    position: fixed;
+    width: 61%;
+    height: 48%;
+    left: 100%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(147,6,6,  0.8);
+    border-radius: 50%;
+    z-index: 2;
+  }
+.ellipse5 {
+    position: fixed;
+    width: 48%;
+    height: 45%;
+    left: 104%;
+    top: 92%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(147,6,6,  0.8);
+    border-radius: 50%;
+    z-index: 3;
+  }
+.ellipse5 img {
+    width: 100%; 
+    height: 100%; 
+    display: block; 
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+
+.main-window {
+    position: fixed;
+    width: 82%;
+    height: 66%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(217,217,217,  1);
+    border-radius: 40px;
+    z-index: 30;
+}
+.task-window {
+    position: fixed;
+    width: 49%;
+    height: 54%;
+    left: 36.5%;
+    top: 53%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(245,	245,	245, 1);
+    border-radius: 15px;
+    z-index: 30;
+}
+.answer-window {
+    position: fixed;
+    width: 23%;
+    height: 54%;
+    left: 76.5%;
+    top: 53%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(245,	245,	245, 0.6);
+    border-radius: 15px;
+    z-index: 30;
+}
+
+.board {
+    position: fixed;
+    width: 100%;
+    height: 17%;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(190, 142, 142);; 
+    border-radius: 20px;
+    z-index: 3;
+  }
+
+  .board img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 20px;
+    opacity: 0.5;
+    object-fit: cover; 
+  }
+
+  .link-left {
+    position: absolute;
+    font-size: 24px;
+    top: 8%;
+    left: 83%; 
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    color: #000000;
+    z-index: 10;
+  }
+  
+  .link-right {
+    position: absolute;
+    top: 8%;
+    left: 92%; 
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    text-decoration: none;
+    color: #000000;
+    z-index: 10;
+  }
+  
+  
+  .link:hover {
+    color: red; 
+  
+  }

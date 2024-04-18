@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Elephant</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'prototype/index.css' %}">
+    <link rel="stylesheet" href="../static/styles/main.css">
 </head>
 <body>
 
@@ -12,14 +11,14 @@
   <div class="ellipse1"></div>
   <div class="ellipse2"></div>
   <div class="ellipse3">
-    <img src="{% static 'prototype/images/index.jpeg' %}" alt="im1">
+    <img src="../static/images/index.jpeg" alt="im1">
   </div>
   <div class="board">
-    <img src="{% static 'prototype/images/index.jpeg' %}" alt="im2">
+    <img src="../static/images/index.jpeg" alt="im2">
   </div>
   <div class="ellipse4"></div>
   <div class="ellipse5">
-    <img src="{% static 'prototype/images/index.jpeg' %}" alt="im3">
+    <img src="../static/images/index.jpeg" alt="im3">
   </div>
 
 
@@ -40,8 +39,14 @@
         <p>Отсутствуют доступные задачи.</p>
     {% endif %}
   </div>
-  <a href="{% url 'authorization' %}" class="link-left">Войти</a><br>
-  <a href="{% url 'registration' %}" class="link-right">Регистрация</a>
+
+    {% if is_auth %}
+        <a href="{% url 'account' %}" class="link-left">Личный кабинет</a><br>
+        <a href="{% url 'logout' %}" class="link-right">Выйти</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="link-left">Войти</a><br>
+        <a href="{% url 'registration' %}" class="link-right">Регистрация</a>
+    {% endif %}
 </div>
 </body>
 </html>

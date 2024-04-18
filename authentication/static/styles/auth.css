@@ -10,7 +10,7 @@ body {
     width: 80%;
     max-width: 400px;
     margin: 50px auto;
-    background-image: url('images/auth.jpg');
+    background-image: url('../images/auth.jpg');
 background-size: cover; /* Масштабирование изображения для заполнения всей области */
 background-position: center; /* Выравнивание изображения по центру */
 background-repeat: no-repeat; /* Запрет повторения фонового изображения */
