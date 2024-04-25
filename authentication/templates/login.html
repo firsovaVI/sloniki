@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Авторизация</title>
+ 
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles/login.css">
+ 
 
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'styles/auth.css' %}">
+        
+  
 </head>
 <body>
     <div class="container">
-        <div class="auth-header">
+        <div class="auth-header"> 
         <h1>Авторизация</h1>
         </div>
         <form action="{% url 'login' %}" method="POST">
@@ -20,13 +25,10 @@
             <input type="submit" value="Войти">
         </form>
         <div class="links">
-            <a href="{% url 'index' %}">Забыли пароль?</a>
+            <a href="">Забыли пароль?</a>
             <span style="margin: 0 60px;"></span>
             <a href="{% url 'registration' %}">Регистрация</a>
         </div>
     </div>
-    {% if status %}
-        <script>alert('Неверный логин или пароль.');</script>
-    {% endif %}
 </body>
 </html>

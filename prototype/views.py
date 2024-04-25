@@ -2,6 +2,10 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import loader
 from django.urls import reverse
 
+import sys
+sys.path.append('../elephant')
+from authentication.models import User
+
 from .models import Problem
 
 
@@ -56,5 +60,11 @@ def detail(request, problem_id):
 
 
 def account(request):
+    id = request.session["session_id"]
+    user = User.objects.get(pk=id)
     message = "<h1>Account page</h1>"
+    message += f"<h1>Login: {user.username} </h1>"
+    message += f"<h1>Email: {user.email} </h1>"
+    message += f"<h1>First Name: {user.first_name} </h1>"
+    message += f"<h1>Last Name: {user.last_name} </h1>"
     return HttpResponse(message)
