@@ -17,7 +17,10 @@ var example_students_list = {
         {"first_name": "Сергей", "last_name": "Васильев", "solved_problems": [1, 2, 3, 4]}
     ]
 };
-response = await fetch('http://127.0.0.1:8000/api/homework/1/');
+// id из URL-адреса
+var homework_id = window.location.pathname.split('/')[3];
+
+response = await fetch('http://127.0.0.1:8000/api/homework/' + homework_id);
 homework = await response.json();
 response = await fetch('http://127.0.0.1:8000/api/user/all/');
 students_list = await response.json();
