@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #be3939;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.sidebar {
+    position: fixed;
+    width: 33.7%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    background-color: lightgray;
+    z-index: 3;
+}
+
+.sidebar-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    opacity: 0.8;
+}
+#content {
+    position: flex;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    left: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    margin-left: 39%; /* Отступ слева равен ширине блока с изображением */
+    
+}
+
+h1 {
+    font-size: 24px;
+    color: #333333;
+}
+
+p {
+    font-size: 16px;
+    color: #d64f4f;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+button {
+    background-color: #818181;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #be3939;
+}
+
+.link-left {
+    position: absolute;
+    top: 8%;
+    left: 92%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    text-decoration: none;
+    color: #000000;
+    z-index: 10;
+}
+
