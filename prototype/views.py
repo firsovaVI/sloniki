@@ -44,6 +44,11 @@ def detail(request, problem_id):
 
     # Получить задачу по первичному ключу из базы данных
     p = Problem.objects.get(pk=problem_id)
+
+    if request.method == 'POST' and is_auth:
+        user = User.objects.get(pk=id)
+        user.solved_problems.add(p)
+        
     if p.image:
         problem = {"headline": p.headline, "image_url": p.image.url, "statement": p.statement, "answer": p.answer}
     else:
